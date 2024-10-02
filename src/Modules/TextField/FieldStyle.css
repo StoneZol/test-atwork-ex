@@ -1,0 +1,53 @@
+.TextField {
+    display: flex;
+    flex-direction: column;
+    width: 340px;
+    gap: 10px
+  }
+  
+  .TextField-Input__Box{
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid var(--default-color-04);
+    width: 340px;
+    height: 42px;
+    padding-left: 16px;
+    padding-right: 8px;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+  }
+  
+  .TextField-Input {
+    color: var(--default-color-01);
+    width: 96%;
+    border: 0;
+    outline: 0;
+    font-size: 16px;
+  }
+  
+  .TextField-Input::placeholder{
+    color: var(--default-color-02);
+  }
+  
+  .TextField-Input{
+    &:required,&:invalid { box-shadow:none; }
+  }
+  
+  .TextField-Label{
+    font-size: 18px;
+    font-weight: 600;
+  }
+  
+  @media (hover: none) {
+    .TextField-Label{
+      font-size: 16px;
+    }
+    .TextField-Input {
+      font-size: 14px;
+    }
+  }

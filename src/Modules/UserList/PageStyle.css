@@ -1,0 +1,29 @@
+.Active {
+    width: 1160px;
+    height: 445px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    border: 0;
+  }
+  
+  .ActiveName{
+    width: 1160px;
+    height: 49px;
+    border-bottom: 1px solid var(--default-color-04);
+    gap: 16px;
+  }
+  
+  .ActiveName >span {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--default-color-01);
+  }
+  
+  .ActiveCards {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 32px;
+    flex-wrap: wrap;
+  }

@@ -1,0 +1,61 @@
+header{
+    box-sizing: border-box;
+    width: 1440px;
+    height: 56px;
+    padding: 18px 150px;
+    background-color: var(--default-color-06);
+  }
+  .HeaderAll{
+    width: 100%;
+    height: 24px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .Logo svg{
+    width: auto;
+    height: 100%;
+    max-width:100% ;
+  }
+  
+   .registeredMenu{
+    display: flex;
+    width: 169px;
+    gap: 20px;
+   }
+  
+   .registeredMenu-Solid{
+    display: flex;
+    width: 52px;;
+    height: 24px;
+    gap: 4px;
+   }
+  
+   .registeredMenu-Solid > svg{
+    cursor: pointer;
+    }
+  
+   .NameFoto {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 93px;
+    height: 100%;
+    gap: 8px;
+    align-items: center;
+   }
+  
+   .NameFoto > img {
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+  }
+  
+  .NameFoto > span{
+    color: var(--default-color-02);
+    font-size: 16px;
+    width: 65px;
+  }

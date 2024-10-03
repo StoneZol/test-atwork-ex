@@ -21,10 +21,12 @@
 
   
   
-  @media (hover: none) {
+  @media (max-width: 1160px){
     .Dropdown{
       width: 160px;
       font-size: 14px;
+      right: 0;
+      top: 185px;
     }
   }
   /*?DropDown Point */
@@ -53,7 +55,7 @@
    }
   
   
-   @media (hover: none) {
+   @media (max-width: 1160px){
     .DropDown-Point__Box{
       padding: 8px 12px;
     }

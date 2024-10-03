@@ -52,11 +52,12 @@
   }
   
   .UserName {
-    cursor: pointer;
+    cursor: auto;
     width: 140px;
     color: var(--accent);
     font-size: 20px;
     font-weight: 600px;
+    overflow: hidden;
   }
   
   .Company{
@@ -65,6 +66,7 @@
     font-size: 16px;
     font-weight: 500;
     color: var(--default-color-02);
+    overflow: hidden;
   }
   
   .City {
@@ -95,4 +97,49 @@
   .Card--archived .City {
     color: var(--default-color-04);
   }
-  /*!UserCard */
+
+  @media (max-width: 1160px){
+    .Card {
+        width: 162px;
+        height: 242px;
+        padding: 16px;
+        gap: 16px;
+        flex-direction: column;
+    }
+    .Card > img {
+        width: 130px;
+        height: 120px;
+        border-radius: 8px;
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+        -ms-border-radius: 8px;
+        -o-border-radius: 8px;
+    }
+    .Information{
+      height: 74px;
+    }
+    .UserName{
+      width: 130px;
+      font-size: 18px;
+      overflow: hidden;
+    }
+    .Company{
+      width: 130px;
+      font-size: 14px;
+      overflow: hidden;
+    }
+
+    .City{
+      width: 130px;
+      height: 14px;
+      font-size: 10px;
+    }
+
+    .User>span>svg{
+      width: 15px;
+    }
+
+    .UserInfo{
+      height: 48px;
+    }
+}

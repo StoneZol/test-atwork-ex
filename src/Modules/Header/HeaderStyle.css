@@ -1,4 +1,7 @@
-header{
+
+
+  header{
+    user-select: none;
     box-sizing: border-box;
     width: 1440px;
     height: 56px;
@@ -35,13 +38,14 @@ header{
     }
   
    .NameFoto {
+    cursor: pointer;
     display: flex;
     flex-wrap: nowrap;
     width: 93px;
     height: 100%;
     gap: 8px;
     align-items: center;
-   }
+}
   
    .NameFoto > img {
     width: 20px;
@@ -58,4 +62,45 @@ header{
     color: var(--default-color-02);
     font-size: 16px;
     width: 65px;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
   }
+
+  .NameFoto:hover >span{
+    color: var(--accent);
+  }
+
+  @media (max-width: 1160px){
+    header{
+       width: 375px;
+       height: 50px;
+       padding: 11px 16px;
+       display: flex;
+       justify-content: space-between;
+
+    }   
+    .Logo{
+      width: 124px;
+    }
+
+    .registeredMenu-Solid{
+      display: none;
+    }
+
+    .NameFoto > span {
+      display: none;
+    }
+    .NameFoto >img {
+      width: 28px;
+      height: 28px;
+    }
+    .NameFoto{
+      justify-content: end;
+    }
+    .registeredMenu{
+      justify-content: end;
+    }
+   }

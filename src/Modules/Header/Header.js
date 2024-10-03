@@ -11,11 +11,11 @@ const Header = ({user}) => {
                 </div>
                 <div className='registeredMenu'>
                     <div className='registeredMenu-Solid'>
-                    <Like/><Bell/>
+                    {user ?(<><Like/><Bell/></>):(<></>)}
                     </div>
                     <div className='NameFoto'>
-                        <img src="https://picsum.photos/id/237/200/300" alt="" />
-                        <span>Ivan224</span>
+                    {user ? (<><img src="https://avatars.githubusercontent.com/u/61286515?v=4" alt=""/>
+                         <span>{user.name}</span></>):(<span>Войти</span>)}
                     </div>
                 </div>
 

@@ -1,6 +1,7 @@
 .TextField {
     display: flex;
     flex-direction: column;
+    position: relative;
     width: 340px;
     gap: 10px
   }
@@ -11,7 +12,7 @@
     justify-content: space-between;
     align-items: center;
     border: 2px solid var(--default-color-04);
-    width: 340px;
+    width: 100%;
     height: 42px;
     padding-left: 16px;
     padding-right: 8px;
@@ -24,6 +25,7 @@
   
   .TextField-Input {
     color: var(--default-color-01);
+    background-color: var(--default-color-06);
     width: 96%;
     border: 0;
     outline: 0;
@@ -42,12 +44,26 @@
     font-size: 18px;
     font-weight: 600;
   }
+  .warning{
+    user-select: none;
+    color: red;
+    font-size: 14px;
+    position: absolute;
+    top: 75px;
+    right: 20px;
+  }
   
-  @media (hover: none) {
+  @media (max-width: 1160px){
+    .TextField{
+      width: 100%;
+    }
     .TextField-Label{
       font-size: 16px;
     }
     .TextField-Input {
       font-size: 14px;
+    }
+    .warning{
+      font-size: 12px;
     }
   }

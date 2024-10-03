@@ -1,13 +1,15 @@
-import React from 'react';
+import React,{useState} from 'react';
 import './InputStyle.css'
 
-const Input = ({placeholder, value}) => {
+const Input = ({value, route, }) => {
+    const [active, setActive] = useState(false)
+
+    const handleClick = () => {
+        setActive(true)
+    }
+
     return (
-        <input
-            type="input"
-            className="category-input"
-            placeholder={placeholder}
-            value={value}/>
+        <div className={`category-input ${active? 'category--active' : ''}`} onClick={handleClick}><span>{value}</span></div>
     );
 }
 

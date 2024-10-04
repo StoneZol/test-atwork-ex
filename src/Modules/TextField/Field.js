@@ -1,17 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import './FieldStyle.css'
 import {Exit} from '../Icons/Icons';
-import { useDispatch } from 'react-redux';
-import { setOriginalUser, updateUserField,resetUserEdit } from '../../redux/userEditSlice';
 
 const Field = ({value = '', label, onChange,originalValue=''}) => {
     const [inputValue, setInputValue] = useState(value);
     const [isFocused, setIsFocused] = useState(false)
-    const dispatch = useDispatch();
 
     useEffect(()=>{
         setInputValue(value);
-    },[setOriginalUser])
+    },[value])
 
     const handleFocus = () => {
         setIsFocused(true)
@@ -23,7 +20,7 @@ const Field = ({value = '', label, onChange,originalValue=''}) => {
         const newValue = e.target.value;
         setInputValue(newValue)
         if (onChange) {
-            onChange(e.target.value);
+            onChange(newValue);
         }
     };
     const handleReset = (e) => {

@@ -7,16 +7,18 @@ import {useDispatch, useSelector} from 'react-redux';
 import {setOriginalUser, updateUserField} from '../../redux/userEditSlice';
 import { getUserAPI } from '../API';
 import { Loader } from '../Icons/Icons';
+import ModalSave from '../Modal/ModalSave';
 
 const UserForm = () => {
 
-const [dispatchng, setDispatchng] = useState([])
     const {username} = useParams()
     const dispatch = useDispatch();
 
     const [isLoading, setIsLoading] = useState(false);
 
-    const [formOK, setFormOK] = useState(false)
+    const [showModal, setShowModal] = useState(false)
+
+    const [formError, setFormError] = useState(false)
 
     const user = useSelector(
         state => state.users.value.find(user => user.username === username)
@@ -30,6 +32,21 @@ const [dispatchng, setDispatchng] = useState([])
         } 
     }, [user, dispatch]);
 
+    const validateForm = () => {
+        const hasErrors = !editedUser.name || !editedUser.username || !editedUser.email ||
+            !editedUser.address.city || !editedUser.phone || !editedUser.company.name;
+            
+            console.log('есть ошибка?',hasErrors)
+            if (hasErrors){
+                setFormError(true)
+            } else setFormError(false)
+
+    };
+
+    useEffect(() => {
+        validateForm();
+    }, [editedUser]);
+
 const fetchUserData = () => {
     return new Promise(async (resolve, reject) => {
         setIsLoading(true);
@@ -39,10 +56,7 @@ const fetchUserData = () => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
-
             const userData = await response.json();
-
-            setDispatchng(userData);
             resolve(userData);
         } catch (error) {
             console.error('Error fetching user data:', error);
@@ -64,15 +78,16 @@ useEffect(() => {
 }, []);
 
     const handleChange = (field, value) => {
-        if (value !== '') {
-            dispatch(updateUserField({ field, value }));
-        }
-    };
+        dispatch(updateUserField({field, value}))
+    }
+
+    const closeModal =()=>{
+        setShowModal(false)
+    }
 
     const saveUserData = async () => {
         setIsLoading(true);
         try {
-            // Укажите ваш URL для отправки данных
             const response = await fetch(`${getUserAPI}`, {
                 method: 'POST',
                 headers: {
@@ -85,12 +100,16 @@ useEffect(() => {
                 throw new Error('Network response was not ok');
             }
     
-            const result = await response.json(); // Получаем результат, если необходимо
+            const result = await response.json();
             console.log('User data saved successfully:', result);
+            setShowModal(true)
         } catch (error) {
             console.error('Error saving user data:', error);
         } finally {
             setIsLoading(false);
+            setTimeout(()=>{
+                closeModal();
+            },4000)
         }
     };
 
@@ -101,6 +120,9 @@ useEffect(() => {
     const updateState =(data)=> {
         dispatch(setOriginalUser(...data))
     }
+
+
+    
 
     return (
         <div className='UserForm'>
@@ -148,8 +170,9 @@ useEffect(() => {
                     originalValue={user?.company.name}
                     onChange={(value) => handleChange('company.name', value)}/>
 
-                <Button text={'Сохранить'}func={saveUserData} disable={formOK}/>
+                <Button text={'Сохранить'}func={saveUserData} disable={formError}/>
             </div>
+            {showModal && <ModalSave func={closeModal}/>}
         </div>
     );
 }

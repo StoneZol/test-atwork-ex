@@ -59,7 +59,7 @@ const userEditSlice = createSlice({
         },
         
         resetUserEdit(state) {
-            state.editedUser = state.originalUser;
+            state.editedUser = {...state.originalUser};
         },
     },
 });

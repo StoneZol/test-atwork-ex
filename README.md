@@ -1,70 +1,80 @@
-# Getting Started with Create React App
+# Тестовое задание для Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Описание проекта
+Данный проект представляет собой двухстраничное приложение на **React**, использующее **Redux Toolkit** и **React Router v6** для управления состоянием и роутингом. Приложение позволяет отображать список пользователей с возможностью редактирования их данных, а также архивирования и скрытия карточек.
 
-## Available Scripts
+### Задание:
+- Отобразить список пользователей, получаемых с публичного API: [https://jsonplaceholder.typicode.com/users](https://jsonplaceholder.typicode.com/users) (первые 6 пользователей).
+- Реализовать функционал для редактирования пользователей, архивирования и скрытия карточек.
+- Приложение состоит из двух страниц: главной страницы и страницы редактирования пользователя.
 
-In the project directory, you can run:
+## Основные функциональные возможности:
+### Главная страница:
+- Получение и отображение первых 6 пользователей с API.
+- Каждая карточка пользователя содержит:
+  - **Username**
+  - **City**
+  - **Company Name**
+  - **Аватарка** (любая картинка)
+- Взаимодействие с карточками:
+  - **Редактировать** — открывает страницу редактирования.
+  - **Архивировать** — переносит карточку в архив.
+  - **Скрыть** — убирает карточку из списка.
+- Возможность восстановить карточку из архива.
+- Показ **loader** во время загрузки данных.
 
-### `npm start`
+### Страница редактирования:
+- Отображение и редактирование следующих данных:
+  - **Name**
+  - **Username**
+  - **Email**
+  - **City**
+  - **Phone**
+  - **Company Name**
+  - **Аватарка** (любая картинка)
+- Валидация: все поля обязательны для заполнения.
+- Кнопка "Сохранить" с валидацией. При успешной валидации появляется **попап** с сообщением об успешном сохранении.
+- Попап автоматически закрывается через 4 секунды или вручную нажатием на крестик.
+- При перезагрузке страницы данные могут сбрасываться.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Использованные технологии
+- **React** — библиотека для создания интерфейсов.
+- **Redux Toolkit** — для управления состоянием приложения.
+- **React Router v6** — для навигации между страницами.
+- **JavaScript (ES6+)** — основной язык программирования.
+- **CSS** — для стилизации компонентов.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Установка и запуск проекта
 
-### `npm test`
+### 1. Клонирование репозитория
+```bash
+git clone https://github.com/ваш-репозиторий
+cd ваш-репозиторий
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 2. Установка зависимостей
+Для установки всех зависимостей используйте команду:
+```bash
+npm install
+```
 
-### `npm run build`
+### 3. Запуск проекта
+Для запуска локального сервера выполните команду:
+```bash
+npm start
+```
+Проект будет доступен по адресу: [http://localhost:3000](http://localhost:3000).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 4. Деплой проекта
+Проект задеплоен по адресу: [Ссылка на деплой](https://ваш-домен.com)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Валидация данных
+При редактировании данных на странице редактирования происходит проверка, что все поля заполнены. Если какое-то поле пустое, кнопка "Сохранить" будет неактивной, и данные не сохранятся.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Дополнительные моменты:
+- **Архивирование**: карточка перемещается в архив и скрывается с главной страницы, но может быть восстановлена.
+- **Loader**: отображается во время загрузки данных с сервера.
+- **Проверка данных**: если какие-то поля пусты, форма не позволит сохранить изменения.
+- **Попап**: успешное сохранение данных отображается в виде всплывающего окна, которое исчезает через несколько секунд или по клику.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

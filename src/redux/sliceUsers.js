@@ -1,11 +1,10 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-
-const urlAPi = 'https://jsonplaceholder.typicode.com/users'
+import { getUsersAPI } from "../Modules/API";
 
 export const fetchUsers = createAsyncThunk(
     'users/fetchUsers',
     async () => {
-        const response = await fetch(urlAPi)
+        const response = await fetch(getUsersAPI)
         const data = await response.json();
         return data.slice(0,6)
     }

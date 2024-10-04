@@ -115,7 +115,7 @@ export const Logo = () => {
 }
 
 export const Loader = () => {
-  return  <svg  className="Loader"xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  return <div className='CentreLoader'><svg  className="Loader"xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
         <circle
             fill="#000000"
             stroke="#000000"
@@ -164,7 +164,7 @@ export const Loader = () => {
                 repeatCount="indefinite"
                 begin="0"></animate>
         </circle>
-    </svg>
+    </svg></div>
 }
 
 export const ChekedIcon = () => {

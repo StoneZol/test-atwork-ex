@@ -48,8 +48,8 @@
 
 ### 1. Клонирование репозитория
 ```bash
-git clone https://github.com/ваш-репозиторий
-cd ваш-репозиторий
+git clone https://github.com/StoneZol/test-atwork-ex
+cd test-atwork-ex
 ```
 
 ### 2. Установка зависимостей
